@@ -8,16 +8,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.OperatorBoard.OperatorBoardButton;
 import frc.robot.subsystems.ShooterSubsystem;
 
-/** Command to shoot one ball. */
 public class FeederCommand extends CommandBase {
   private ShooterSubsystem m_shooterSubsystem;
   private OperatorBoardButton m_button;
 
-  /**
-   * Creates a new {@link FeederCommand}.
-   * 
-   * @param shooter Shooter subsystem that the command will run on.
-   */
+
   public FeederCommand(ShooterSubsystem shooter, OperatorBoardButton button) {
     m_shooterSubsystem = shooter;
     m_button = button;

@@ -18,7 +18,6 @@ public class IntakeSubsystem extends SubsystemBase {
   private VictorSPX m_armController;
   private double m_desiredIntakeSpeed;
 
-  /** Creates a new IntakeSubsystem. */
   public IntakeSubsystem(IntakeHardware intake) {
     // fill this in based on hardwaremap
     m_intakeController = intake.intakeController;
@@ -34,33 +33,23 @@ public class IntakeSubsystem extends SubsystemBase {
 
   }
 
-  /**
-   * A <b>positive</b> `speed` value makes the arm move <b>up</b>
-   * 
-   * @param velocity A value from [-1, 1], the speed at which the arm moves
-   */
+  
   public void moveArm(double velocity) {
     m_armController.set(VictorSPXControlMode.PercentOutput, velocity);
     SmartDashboard.putNumber("Desired Arm Motor Speed", velocity);
   }
 
-  /**
-   * Spins the intake to intake balls.
-   */
+  
   public void intake() {
     m_desiredIntakeSpeed = Constants.IntakeConstants.INTAKE_SPEED;
   }
 
-  /**
-   * Stops the intake from spinning.
-   */
+ 
   public void stopIntake() {
     m_desiredIntakeSpeed = 0;
   }
 
-  /**
-   * Spins the intake "backwards" to outtake balls.
-   */
+  
   public void outtake() {
     m_desiredIntakeSpeed = -Constants.IntakeConstants.INTAKE_SPEED;
   }

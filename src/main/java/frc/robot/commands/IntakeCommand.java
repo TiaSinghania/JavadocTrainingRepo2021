@@ -13,9 +13,7 @@ public class IntakeCommand extends CommandBase implements AutoCloseable {
   private IntakeSubsystem m_intakeSubsystem;
   private OperatorBoardButton m_button;
 
-  /**
-   * Creates a new IntakeCommand.
-   */
+ 
   public IntakeCommand(IntakeSubsystem intake, OperatorBoardButton button) {
 
     m_intakeSubsystem = intake;
@@ -24,26 +22,22 @@ public class IntakeCommand extends CommandBase implements AutoCloseable {
     m_button = button;
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     m_intakeSubsystem.intake();
     m_button.turnLightOn();
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     m_intakeSubsystem.stopIntake();
     m_button.turnLightOff();
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;
@@ -51,8 +45,6 @@ public class IntakeCommand extends CommandBase implements AutoCloseable {
 
   @Override
   public void close() throws Exception {
-
-    // Do this soon
 
   }
 }

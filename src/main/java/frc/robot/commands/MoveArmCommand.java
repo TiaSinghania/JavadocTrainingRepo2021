@@ -12,9 +12,7 @@ public class MoveArmCommand extends CommandBase {
   private OperatorBoard m_controller;
   private IntakeSubsystem m_intakeSubsystem;
 
-  /**
-   * Creates a new MoveArmCommand.
-   */
+
   public MoveArmCommand(OperatorBoard controller, IntakeSubsystem intake) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_controller = controller;
@@ -22,12 +20,10 @@ public class MoveArmCommand extends CommandBase {
     addRequirements(m_intakeSubsystem);
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     // joystickOutput will be between 1 and -1
@@ -36,12 +32,10 @@ public class MoveArmCommand extends CommandBase {
 
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;

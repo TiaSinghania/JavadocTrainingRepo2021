@@ -19,34 +19,23 @@ public class ShooterSubsystem extends SubsystemBase {
   private double m_feederSpeed;
   public boolean m_isAtMaxSpeed;
 
-  /** Creates a new ShooterSubsystem. */
   public ShooterSubsystem(ShooterHardware shooterHardware) {
     m_flywheelMotor = shooterHardware.flywheel;
     m_feeder = shooterHardware.feeder;
     m_flywheelEncoder = shooterHardware.rightCanEncoder;
   }
 
-  /**
-   * Inherits from SpeedController.set(double) method.
-   * 
-   * @param power Value from [-1, 1].
-   */
+  
   public void setFlywheelPower(double power) {
     this.m_targetSpeed = power;
   }
 
-  /**
-   * 
-   * @return Speed of flywheel, in RPM
-   */
+  
   public double getFlywheelRPM() {
     return m_flywheelEncoder.getVelocity();
   }
 
-  /**
-   * Turns on the feeder to feed balls into the shooter. ONLY runs the feeder if
-   * the flywheel is up to speed.
-   */
+  
   public void turnFeederOn() {
     if (getFlywheelRPM() >= ShooterConstants.FLYWHEEL_READY_RPM) {
       m_feederSpeed = 1;
@@ -55,9 +44,7 @@ public class ShooterSubsystem extends SubsystemBase {
     }
   }
 
-  /**
-   * Turns off the feeder to stop feeding balls into the shooter.
-   */
+  
   public void turnFeederOff() {
     m_feederSpeed = 0;
   }

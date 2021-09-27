@@ -15,9 +15,6 @@ public class OuttakeCommand extends CommandBase {
   private IntakeSubsystem m_intakeSubsystem;
   private OperatorBoardButton m_button;
 
-  /**
-   * Creates a new OuttakeCommand.
-   */
 
   public OuttakeCommand(IntakeSubsystem intake, OperatorBoardButton button) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -27,7 +24,6 @@ public class OuttakeCommand extends CommandBase {
     m_button = button;
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
 
@@ -35,19 +31,16 @@ public class OuttakeCommand extends CommandBase {
     m_button.turnLightOn();
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     m_intakeSubsystem.stopIntake();
     m_button.turnLightOff();
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;
